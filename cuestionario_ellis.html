@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Cuestionario de creencias de Ellis</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f5f6f8;--card:#fff;--tx:#1d2330;--mut:#5d6677;--ac:#2f5d9e;--bd:#d9dde5;--ok:#2e7d4f;--wn:#b7791f;--bad:#b3261e;color-scheme:light}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#14171d;--card:#1d222b;--tx:#e8ebf1;--mut:#9aa3b3;--ac:#7fa8e6;--bd:#333a47;--ok:#6cc18d;--wn:#e3b05a;--bad:#f08a82;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#14171d;--card:#1d222b;--tx:#e8ebf1;--mut:#9aa3b3;--ac:#7fa8e6;--bd:#333a47;--ok:#6cc18d;--wn:#e3b05a;--bad:#f08a82;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:860px;margin:0 auto;padding:16px}
+h1{font-size:1.5rem;margin:.3em 0}h2{font-size:1.15rem;margin:0 0 .3em;color:var(--ac)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:16px;margin:14px 0}
+.mut{color:var(--mut);font-size:.92rem}
+label.f{display:block;margin:8px 0;font-size:.9rem}
+input[type=text],input[type=number],input[type=date]{width:100%;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px}
+.q{padding:10px 0;border-top:1px solid var(--bd)}
+.q p{margin:0 0 6px;font-weight:500}.q.miss{background:rgba(179,38,30,.1)}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opts label{flex:1 1 120px;border:1px solid var(--bd);border-radius:8px;padding:6px 8px;font-size:.85rem;cursor:pointer;display:flex;gap:6px;align-items:center}
+.opts input:checked+span{font-weight:700;color:var(--ac)}
+button{font:inherit;border:0;border-radius:10px;padding:12px 20px;background:var(--ac);color:#fff;cursor:pointer;font-weight:600}
+button.sec{background:transparent;color:var(--ac);border:1px solid var(--ac)}
+.badge{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.85rem;font-weight:600;border:1px solid currentColor}
+.l0{color:var(--ok)}.l1{color:var(--wn)}.l2{color:var(--bad)}
+table{border-collapse:collapse;width:100%;font-size:.93rem}
+th,td{border-bottom:1px solid var(--bd);padding:6px 8px;text-align:left}
+.tw{overflow-x:auto}
+.alert{border:2px solid var(--bad);border-radius:10px;padding:10px 14px;margin:10px 0}
+.alert.w{border-color:var(--wn)}
+#report{display:none}
+.sum{border:2px solid var(--tx);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.sum th,.sum td{border:1px solid var(--bd);padding:5px 9px;font-size:.88rem}
+.sum thead th{text-align:center;background:var(--bg)}
+.sum tbody{border-top:2px solid var(--tx)}
+.sum .ts{font-weight:700;vertical-align:top;background:var(--bg)}
+.sum .dm{vertical-align:middle;font-weight:500}
+.sum .sh td{text-align:center;font-size:.8rem;color:var(--mut);background:var(--bg)}
+.sum .on{font-weight:700}
+.sum .on.k0{background:rgba(46,125,79,.22);color:var(--ok)}
+.sum .on.k1{background:rgba(214,150,30,.25);color:var(--wn)}
+.sum .on.k2{background:rgba(179,38,30,.2);color:var(--bad)}
+.sum .on.kn{background:rgba(47,93,158,.2);color:var(--ac)}
+.sum .sc{float:right;margin-left:12px}
+.sum .bf{text-align:center}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
+@media print{
+ body{background:#fff;color:#000;font-size:11pt}
+ :root{--card:#fff;--bd:#bbb;--tx:#000;--mut:#444;--ac:#1f4378;--ok:#1d6a3d;--wn:#8a5a00;--bad:#9b1c14}
+ #formWrap,.actions{display:none!important}
+ #report{display:block!important}
+ main{padding:0;max-width:none}
+ .card{break-inside:avoid;border-radius:0}
+}
+</style>
+<style>
+.prog{position:sticky;top:0;z-index:5;background:var(--card);border:1px solid var(--bd);border-radius:10px;padding:6px 12px;font-size:.9rem;margin:10px 0}
+.q .opts label{flex:1 1 140px}
+.el{border:2px solid var(--tx);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+.el th,.el td{border:1px solid var(--bd);padding:6px 8px;font-size:.88rem}
+.el thead th{text-align:center;background:var(--bg)}
+.el .num{text-align:center;font-weight:700;background:var(--bg);width:34px}
+.el .lc{text-align:center;width:84px;font-size:1.1rem}
+.el .lc.on.k0{background:rgba(46,125,79,.28);color:var(--ok)}
+.el .lc.on.k1{background:rgba(214,150,30,.3);color:var(--wn)}
+.el .lc.on.k2{background:rgba(179,38,30,.26);color:var(--bad)}
+.el .sc2{text-align:center;font-weight:700;white-space:nowrap}
+.el .sc2.k0{color:var(--ok)}.el .sc2.k1{color:var(--wn)}.el .sc2.k2{color:var(--bad)}
+.pips{display:flex;gap:2px;min-width:110px}
+.pips i{flex:1;height:14px;border-radius:2px;background:var(--bd)}
+.pips i.on.k0{background:var(--ok)}.pips i.on.k1{background:var(--wn)}.pips i.on.k2{background:var(--bad)}
+.it td{font-size:.8rem;padding:3px 6px}
+.it tr.pt td{background:rgba(179,38,30,.12)}
+.bel{border-left:5px solid var(--bd);padding:4px 12px;margin:10px 0}
+.bel.k0{border-color:var(--ok)}.bel.k1{border-color:var(--wn)}.bel.k2{border-color:var(--bad)}
+.bel p{margin:4px 0}
+.leg{display:flex;gap:12px;flex-wrap:wrap;font-size:.85rem;margin:6px 0}
+</style>
+</head><body><main>
+<div id="formWrap">
+<h1>Test de creencias de Ellis</h1>
+<p class="mut">Registro de opiniones · 100 afirmaciones · De acuerdo / No de acuerdo</p>
+<div class="card">
+<p>Este registro de opiniones busca poner de manifiesto ideas auto-limitadoras particulares que pueden contribuir, de forma encubierta, al estrés y la infelicidad. No necesitas pensar mucho tiempo en cada afirmación: responde rápido y pasa a la siguiente. Contesta lo que realmente piensas, no lo que crees que deberías pensar. Tu participación es voluntaria y la información se trata de forma confidencial bajo secreto profesional.</p>
+<div class="row">
+<label class="f">Nombre<input type="text" id="nom"></label>
+<label class="f">Edad<input type="number" id="edad" min="10" max="99"></label>
+<label class="f">Sexo<select id="sexo" style="width:100%;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx);font:inherit"><option value="">Seleccionar…</option><option>Femenino</option><option>Masculino</option><option>Otro</option></select></label>
+<label class="f">Fecha de aplicación<input type="date" id="fecha"></label>
+</div>
+<h2>Consentimiento informado</h2>
+<p class="mut">Declaro que he sido informado/a sobre la naturaleza de esta evaluación. Comprendo que los resultados serán utilizados por el/la profesional de la psicología para la atención clínica, que mi participación es voluntaria y que la información está protegida por el secreto profesional, salvo en situaciones de riesgo inminente para mi vida o la de otros. En menores de 18 años se requiere firma de madre, padre o tutor.</p>
+<label><input type="checkbox" id="cons"> Acepto el consentimiento informado</label>
+</div>
+<div class="prog">Respondidas: <b id="cnt">0</b> / 100</div>
+<div class="card" id="items"></div>
+<button id="go">Finalizar y generar texto</button>
+<p class="mut" id="err" style="color:var(--bad)"></p>
+</div>
+<div id="done" style="display:none"><h1>¡Cuestionario completado!</h1><div class="card"><p>Copia el texto de abajo y envíaselo al profesional (por mensaje o correo) tal como aparece, sin modificarlo.</p><textarea id="raw" readonly rows="8" style="width:100%;font:13px/1.4 ui-monospace,Consolas,monospace;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--tx)"></textarea><div class="actions"><button id="dl">Copiar texto</button></div><p class="mut" id="cpmsg"></p></div></div>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+const I=["Para mí es importante recibir la aprobación de los demás", "Odio equivocarme en algo", "La gente que se equivoca, logra lo que se merece", "Generalmente, acepto los acontecimientos con filosofía", "Si una persona quiere, puede ser feliz en casi cualquier circunstancia", "Temo a las cosas que, a menudo, me resultan objeto de preocupación", "Normalmente, aplazo las decisiones importantes", "Todo el mundo necesita de alguien a quien recurrir en busca de ayuda y consejo", "“Una cebra no puede cambiar sus rayas”", "Prefiero, sobre todas las cosas, pasar el tiempo libre de una forma tranquila", "Me gusta que los demás me respeten, pero yo no tengo por qué manifestar respeto a nadie", "Evito las cosas que no puedo hacer bien", "Hay demasiadas personas malas que escapan del castigo", "Las frustraciones no me distorsionan", "A la gente no le trastornan los acontecimientos, sino la imagen que tiene de ellos", "Me producen poca ansiedad los peligros inesperados o los acontecimientos futuros", "Trato de afrontar los trabajos fastidiosos y hacerlos cuanto antes", "En las decisiones importantes, consulto con una autoridad al respecto", "Es casi imposible superar la influencia del pasado", "Me gusta disponer de muchos recursos", "Quiero gustar a todo el mundo", "No me gusta competir en aquellas actividades en las que los demás son mejores que yo", "Aquellos que se equivocan, merecen cargar con las culpas", "Las cosas deberían ser distintas a como son", "Yo provoco mi propio mal humor", "A menudo, no puedo quitarme algún asunto de la cabeza", "Evito enfrentarme a los problemas", "Todo el mundo necesita tener fuera de sí mismo una fuente de energía", "Sólo porque una vez algo afectó tu vida de forma importante, no quiere decir que tenga que ser igual en un futuro", "Me siento más satisfecho cuando tengo muchas cosas que hacer", "Puedo gustarme a mí mismo, aun cuando no guste a los demás", "Me gustaría triunfar en algo, pero no pienso que deba hacerlo", "La inmoralidad debería castigarse severamente", "A menudo me siento trastornado/a por situaciones que no me gustan", "Las personas desgraciadas, normalmente se deben este estado a sí mismas", "No me preocupo por no poder evitar que algo ocurra", "Normalmente, tomo las decisiones tan pronto como puedo", "Hay determinadas personas de las que dependo mucho", "La gente sobrevalora la influencia del pasado", "Lo que más me divierte es realizar algún proyecto creativo", "Si no gusto a los demás es su problema, no el mío", "Para mí es muy importante lograr el éxito en todo lo que hago", "Pocas veces culpo a la gente de sus errores", "Normalmente, acepto las cosas como son, aunque no me gusten", "Nadie está mucho tiempo de mal humor o enfadado, a menos que quiera estarlo", "No puedo soportar correr riesgos", "La vida es demasiado corta para pasarla haciendo cosas que a uno no le gustan", "Me gusta valerme por mí mismo/a", "Si hubiera vivido experiencias distintas, podría ser más como me gustaría ser", "Me gustaría jubilarme y apartarme totalmente del trabajo", "Pienso que es duro ir en contra de lo que piensan los demás", "Disfruto de las actividades por sí mismas, al margen de lo bueno/a o malo/a que sea en ellas", "El miedo al castigo es lo que hace a la gente ser buena", "Si las cosas me desagradan opto por ignorarlas", "Cuanto más problemas tiene una persona, menos feliz es", "Raramente me siento ansioso/a al pensar en el futuro", "Raramente aplazo las cosas", "Yo soy el/la único/a que realmente puede entender y solucionar mis problemas", "Normalmente, no pienso que las experiencias pasadas me afecten en la actualidad", "Tener demasiado tiempo libre, resulta aburrido", "Aunque me gusta recibir la aprobación de los demás, no tengo necesidad real de ello", "Me fastidia que los demás sean mejores que yo en algo", "Todo el mundo es, esencialmente, bueno", "Hago todo lo que puedo por conseguir lo que quiero y una vez conseguido, deja de preocuparme", "Nada es intrínsecamente perturbador; si lo es se debe al modo en que lo interpretamos", "Me preocupan mucho determinadas cosas del futuro", "Me resulta difícil hacer las tareas desagradables", "Me desagrada que los demás tomen decisiones por mí", "Somos esclavos de nuestro pasado", "A veces desearía poder irme a una isla tropical y tenderme en la playa, sin hacer nada más", "A menudo me preocupa que la gente me apruebe y me acepte", "Me trastorna cometer errores", "No es equitativo que “llueva igual sobre el justo que sobre el injusto”", "Yo disfruto honradamente de la vida", "Debería haber más personas que afrontaran lo desagradable de la vida", "Algunas veces, me resulta imposible apartar de mi mente el miedo a algo", "Una vida fácil, muy pocas veces resulta compensadora", "Pienso que es fácil buscar ayuda", "Cada vez que algo afecta tu vida de forma importante, seguirá haciéndolo siempre", "Me encanta estar tumbado", "Tengo considerable preocupación por lo que la gente piensa de mí", "Muchas veces me enfado muchísimo por cosas sin importancia", "Generalmente doy una segunda oportunidad a quien se equivoca", "La gente es más feliz cuando tiene metas y problemas que resolver", "Nunca hay razón para permanecer afligido mucho tiempo", "Raramente pienso en cosas como la muerte", "No me gustan las responsabilidades", "No me gusta depender de los demás", "La gente nunca cambia, básicamente", "La mayoría de las personas trabaja demasiado y no descansa lo suficiente", "Ser criticado es algo fastidioso pero no perturbador", "No me asusta hacer aquellas cosas que no hago del todo bien", "Nadie es malo a pesar de que sus actos lo sean", "Raramente me importunan los errores de los demás", "El hombre construye su propio malestar interno", "Muchas veces me sorprendo planeando lo que haría si me encontrara en determinadas situaciones de peligro", "Si tengo que hacer algo, lo hago a pesar de que no sea agradable", "He aprendido a no estar pendiente de nada que no esté relacionado con mi bienestar", "No miro atrás con resentimiento", "No me siento realmente contento hasta que no estoy relajado y sin hacer nada"];
+const chk=i=>document.querySelector(`input[name="r${i}"]:checked`);
+$("#fecha").value=new Date().toISOString().slice(0,10);
+$("#items").innerHTML=I.map((t,i)=>`<div class="q" id="q${i}"><p>${i+1}. ${t}</p><div class="opts"><label><input type="radio" name="r${i}" value="1"><span>De acuerdo</span></label><label><input type="radio" name="r${i}" value="0"><span>No de acuerdo</span></label></div></div>`).join("");
+$("#items").addEventListener("change",()=>{$("#cnt").textContent=I.filter((_,i)=>chk(i)).length});
+$("#go").onclick=()=>{
+ const e=$("#err"),miss=[];
+ I.forEach((_,i)=>{const el=$("#q"+i),m=!chk(i);el.classList.toggle("miss",m);if(m)miss.push(el)});
+ const nom=$("#nom").value.trim(),edad=$("#edad").value,sexo=$("#sexo").value,fecha=$("#fecha").value;
+ if(!nom||!edad||!sexo||!fecha){e.textContent="Completa nombre, edad, sexo y fecha de aplicación.";window.scrollTo(0,0);return}
+ if(!$("#cons").checked){e.textContent="Debes aceptar el consentimiento informado.";$("#cons").scrollIntoView({block:"center"});return}
+ if(miss.length){e.textContent=`Faltan ${miss.length} respuesta(s). Están resaltadas en rojo.`;miss[0].scrollIntoView({block:"center"});return}
+ e.textContent="";
+ const d={formato:"TEST_ELLIS",version:1,nombre:nom,edad:+edad,sexo,fecha,consentimiento:true,resp:I.map((_,i)=>+chk(i).value)};
+ const txt="TEST_ELLIS v1\n"+JSON.stringify(d);
+ $("#raw").value=txt;$("#raw").onclick=function(){this.select()};
+ $("#dl").onclick=async()=>{const m=$("#cpmsg"),r=$("#raw");try{await navigator.clipboard.writeText(txt);m.textContent="Texto copiado."}catch(x){r.focus();r.select();try{document.execCommand("copy");m.textContent="Texto copiado."}catch(y){m.textContent="Texto seleccionado: cópialo con Ctrl+C (o mantén presionado en el móvil)."}}};
+ $("#formWrap").style.display="none";$("#done").style.display="block";window.scrollTo(0,0);
+};
+</script></body></html>
